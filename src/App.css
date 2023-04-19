@@ -1,0 +1,89 @@
+@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@200&display=swap');
+
+* {
+  box-sizing: border-box;
+  font-family: 'JetBrains Mono', monospace;
+}
+
+html,
+body,
+#root,
+main {
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+div {
+  margin: 0;
+  color: #2a2b26;
+}
+
+section {
+  position: fixed;
+  max-width: 600px;
+  padding: 10px;
+  color: white;
+  z-index: 9999;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+}
+
+canvas {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
+}
+
+a {color: white}
+
+.line {
+    text-align: center;
+}
+
+header p {
+  text-align: center;
+}
+
+header p a, header p b {
+  font-size: 14px;
+  font-weight: bold;
+}
+
+pre {
+  width: fit-content;
+  margin: 0 auto;
+  margin-top: 30px;
+  margin-bottom: 30px;
+}
+
+main main b {
+    font-size: 14px;
+    font-weight: bolder;
+    text-align: center;
+    display: block;
+}
+
+main main p {
+    text-align: justify;
+}
+
+footer p {
+    text-align: center;
+    display: block;
+}
+
+@media screen and (max-width: 450px) {
+    h {
+      font-size: 20px;
+      font-weight: bolder;
+    }
+    section {
+      position: absolute;
+      max-width: 400px;
+    }
+  }
