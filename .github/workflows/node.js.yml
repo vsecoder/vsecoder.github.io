@@ -35,7 +35,7 @@ jobs:
 
     - name: Deploy
       run: |
-        git remote add origin https://${github_token}@github.com/vsecoder/vsecoder.github.io.git
+        git remote add origin https://${{ secrets.ACTIONS_DEPLOY_ACCESS_TOKEN }}@github.com/vsecoder/vsecoder.github.io.git
         npm run deploy
       env:
         user_name: 'github-actions[bot]'
