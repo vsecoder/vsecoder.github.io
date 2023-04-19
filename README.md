@@ -3,14 +3,14 @@
 ## Dev
 
 ```bash
-npm i
+npm install
 npm run start
 ```
 
 ## Build
 
 ```bash
-npm i
+npm install
 npm run build
 ```
 ## Prod
