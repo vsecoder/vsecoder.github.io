@@ -1,20 +1,19 @@
 # Resume on React + THREE.js
 
-## Запуск без сборки
+## Dev
 
 ```bash
 npm i
 npm run start
 ```
 
-## Собрать
+## Build
 
 ```bash
 npm i
 npm run build
 ```
-
-А для запуска на продакшене советую:
+## Prod
 
 ```bash
 serve -s build
