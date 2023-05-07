@@ -1,4 +1,6 @@
-FROM node:16-alpine3.11 AS base
+FROM node:alpine
+
+COPY ./ ./
 
 # Install all dependencies (with dev ones)
 RUN npm install
