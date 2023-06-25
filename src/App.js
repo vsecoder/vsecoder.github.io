@@ -55,10 +55,10 @@ function App() {
           <p className='line'>{hr}</p>
           <footer>
             <p> More links:<br />
-              [<a href="https://github.com/vsecoder/resume">PAGE SOURCES</a>]
+              [<a href="https://github.com/vsecoder/vsecoder.github.io">PAGE SOURCES</a>]
               [<a href="https://t.me/vsecoder_bio">BIO</a>]
               [<a href="https://wakatime.com/@vsecoder">WAKATIME</a>]
-              [<a href="https://t.me/C0deWizard">CHANNEL</a>]
+              [<a href="https://projects.vsecoder.me/">PROJECTS</a>]
             </p>
           </footer>
           <p className='line'>{hr}</p>
