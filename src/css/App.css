@@ -39,17 +39,20 @@ canvas {
   left: 0;
 }
 
-a {color: white}
+a {
+  color: white
+}
 
 .line {
-    text-align: center;
+  text-align: center;
 }
 
 header p {
   text-align: center;
 }
 
-header p a, header p b {
+header p a,
+header p b {
   font-size: 14px;
   font-weight: bold;
 }
@@ -61,29 +64,35 @@ pre {
   margin-bottom: 30px;
 }
 
-main main b {
-    font-size: 14px;
-    font-weight: bolder;
-    text-align: center;
-    display: block;
+main b {
+  font-size: 14px;
+  font-weight: bolder;
+  text-align: center;
+  display: block;
 }
 
-main main p {
-    text-align: justify;
+main p {
+  text-align: justify;
 }
 
 footer p {
-    text-align: center;
-    display: block;
+  text-align: center;
+  display: block;
+}
+
+var {
+  font-style: inherit;
+  text-decoration: none;
 }
 
 @media screen and (max-width: 450px) {
-    h {
-      font-size: 20px;
-      font-weight: bolder;
-    }
-    section {
-      position: absolute;
-      max-width: 400px;
-    }
+  var {
+    font-size: 20px;
+    font-weight: bolder;
   }
+
+  section {
+    position: absolute;
+    max-width: 400px;
+  }
+}
