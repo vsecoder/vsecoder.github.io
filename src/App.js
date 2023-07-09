@@ -4,6 +4,8 @@ import { Canvas } from '@react-three/fiber';
 import { Torusknot, AsciiRenderer } from './js/3d';
 import { myAge } from './js/age';
 
+import { useEffect, useState } from 'react';
+
 
 const logo_big = `
                                 _             
@@ -21,6 +23,30 @@ function App() {
 
   const hr = '-'.repeat(isMobile ? window.innerWidth / 15 : 60);
   const space = ' '.repeat(isMobile ? 1 : 35);
+
+  const [metrikaData, setMetrikaData] = useState('Visits is undefined');
+  let token = process.env.YANDEX_METRIKA_TOKEN;
+
+
+  useEffect(() => {
+    if (!token) return setMetrikaData('Visits is undefined');
+    fetch(
+      'https://api-metrika.yandex.net/stat/v1/data?metrics=ym:s:visits&id=94252682', {
+      headers: {
+        "Authorization": `OAuth ${token}`
+      }
+    }
+    )
+      .then(r => r.json())
+      .then(metrikaApiJSON => {
+        console.log(metrikaApiJSON);
+        setMetrikaData(metrikaApiJSON.data[0].metrics[0]);
+      })
+      .catch(e => {
+        console.log(e);
+        setMetrikaData('-');
+      });
+  }, [token]);
 
   return (
     <>
@@ -48,8 +74,7 @@ function App() {
           <p>My resume contains a bunch of different rubbish that I'm too lazy to list, it's better to look at Github for yourself)))</p>
           <p>P.S. this whole page is written for the sake of interest without any special styles on React.js and THREE.js!</p>
         </main>
-        <p className='line'>
-          {hr}</p>
+        <p className='line'>{hr}</p>
         <footer>
           <p> More links:<br />
             [<a href="https://github.com/vsecoder/vsecoder.github.io">PAGE SOURCES</a>]
@@ -58,10 +83,9 @@ function App() {
             [<a href="https://projects.vsecoder.me/">PROJECTS</a>]
           </p>
         </footer>
-        <p className='line'>
-          {hr}</p>
+        <p className='line'>{hr}</p>
         <footer>
-          <p>Made with ❤️ by vsecoder</p>
+          <p>Made with ❤️ by vsecoder. {metrikaData}</p>
         </footer>
       </section>
       <Canvas>
