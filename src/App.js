@@ -24,29 +24,15 @@ function App() {
   const hr = '-'.repeat(isMobile ? window.innerWidth / 15 : 60);
   const space = ' '.repeat(isMobile ? 1 : 35);
 
-  const [metrikaData, setMetrikaData] = useState('Visits is undefined');
-  let token = process.env.YANDEX_METRIKA_TOKEN;
+  const [metrikaData, setMetrikaData] = useState('-');
+  //const TOKEN = process.env.REACT_APP_NOT_SECRET_TOKEN;
+  const TOKEN = '';
 
 
   useEffect(() => {
-    if (!token) return setMetrikaData('Visits is undefined');
-    fetch(
-      'https://api-metrika.yandex.net/stat/v1/data?metrics=ym:s:visits&id=94252682', {
-      headers: {
-        "Authorization": `OAuth ${token}`
-      }
-    }
-    )
-      .then(r => r.json())
-      .then(metrikaApiJSON => {
-        console.log(metrikaApiJSON);
-        setMetrikaData(metrikaApiJSON.data[0].metrics[0]);
-      })
-      .catch(e => {
-        console.log(e);
-        setMetrikaData('-');
-      });
-  }, [token]);
+    //getVercelStats(TOKEN).then(data => setMetrikaData(data));
+    setMetrikaData('-')
+  }, [TOKEN]);
 
   return (
     <>
@@ -73,6 +59,7 @@ function App() {
           <p>Hello, I'm a ~{myAge} years old developer! I have been developing since an early age, and I fell in love with coding.</p>
           <p>My resume contains a bunch of different rubbish that I'm too lazy to list, it's better to look at Github for yourself)))</p>
           <p>P.S. this whole page is written for the sake of interest without any special styles on React.js and THREE.js!</p>
+          <p>P.S.S. this page have {metrikaData} visits!</p>
         </main>
         <p className='line'>{hr}</p>
         <footer>
@@ -85,7 +72,7 @@ function App() {
         </footer>
         <p className='line'>{hr}</p>
         <footer>
-          <p>Made with ❤️ by vsecoder. {metrikaData}</p>
+          <p>Made with ❤️ by vsecoder.</p>
         </footer>
       </section>
       <Canvas>
