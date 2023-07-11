@@ -8,7 +8,7 @@ export function Hr() {
 
     useEffect(() => {
         setIsMobile(window.innerWidth < 450);
-    });
+    }, [isMobile]);
 
     return (
         <p className={styles.line}>

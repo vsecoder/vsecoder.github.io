@@ -17,7 +17,7 @@ export function Header() {
 
     useEffect(() => {
         setIsMobile(window.innerWidth < 450);
-    });
+    }, [isMobile]);
 
     return (
         <header className={styles.header}>
