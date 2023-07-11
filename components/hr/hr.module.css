@@ -2,4 +2,5 @@
     text-align: center;
     text-overflow: "";
     overflow: hidden;
+    white-space: nowrap;
 }
