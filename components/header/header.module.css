@@ -8,6 +8,12 @@
     font-weight: bold;
 }
 
+.header b {
+    text-align: right;
+    width: 95%;
+    display: inherit;
+}
+
 .header pre {
     width: fit-content;
     margin: 0 auto;

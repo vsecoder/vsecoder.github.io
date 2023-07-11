@@ -9,26 +9,43 @@ const logo_big = `
     \\_/ |___/\\___|\\___\\___/ \\__,_|\\___|_|     
 `;
 
-const logo_small = '<h1>vsecoder</h1>'
+const logo_small = '<h1>vsecoder</h1>';
+
+function useWindowSize() {
+    const [windowSize, setWindowSize] = useState({
+        width: undefined,
+        height: undefined,
+    });
+    useEffect(() => {
+        function handleResize() {
+            setWindowSize({
+                width: window.innerWidth,
+                height: window.innerHeight,
+            });
+        }
+        window.addEventListener("resize", handleResize);
+        handleResize();
+        return () => window.removeEventListener("resize", handleResize);
+    }, []);
+    return windowSize;
+}
 
 export function Header() {
-    const [isMobile, setIsMobile] = useState(false);
-    const space = ' '.repeat(isMobile ? 1 : 35);
+    const [isMobile, setIsMobile] = useState(true);
+    const [logo, setLogo] = useState(logo_small);
+    const size = useWindowSize();
 
     useEffect(() => {
-        setIsMobile(window.innerWidth < 450);
-    }, [isMobile]);
+        setIsMobile(size.width > 450);
+        setLogo(isMobile ? logo_small : logo_big);
+    }, [size.width]);
 
     return (
         <header className={styles.header}>
             <pre>
                 <div className={styles.logo}>
-                    {isMobile ? (
-                        logo_small
-                    ) : (
-                        logo_big
-                    )}
-                </div> {space} <b>resume</b></pre>
+                    {logo}
+                </div><b>resume</b></pre>
             <p>
                 [<a href="https://t.me/vsecoder">Telegram</a>]
                 [<a href="https://github.com/vsecoder">Github</a>]
