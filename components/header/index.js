@@ -31,14 +31,14 @@ function useWindowSize() {
 }
 
 export function Header() {
-    const [isMobile, setIsMobile] = useState(true);
+    const [isMobile, setIsMobile] = useState(false);
     const [logo, setLogo] = useState(logo_small);
     const size = useWindowSize();
 
     useEffect(() => {
-        setIsMobile(size.width > 450);
+        setIsMobile(size.width < 450);
         setLogo(isMobile ? logo_small : logo_big);
-    }, [size.width]);
+    }, [size.width, isMobile]);
 
     return (
         <header className={styles.header}>
