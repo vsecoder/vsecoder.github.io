@@ -1,3 +1,5 @@
 .line {
     text-align: center;
+    text-overflow: "";
+    overflow: hidden;
 }
