@@ -1,0 +1,19 @@
+.container {
+  position: fixed;
+  max-width: 600px;
+  padding: 10px;
+  color: white;
+  z-index: 9999;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+}
+
+@media screen and (max-width: 450px) {
+  .container {
+    position: absolute;
+    max-width: 400px;
+    top: 50%;
+    width: 90%;
+  }
+}

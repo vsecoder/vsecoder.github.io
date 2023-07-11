@@ -1,6 +1,8 @@
-import { useFrame, useThree } from '@react-three/fiber'
-import { AsciiEffect } from 'three-stdlib'
-import { useEffect, useRef, useMemo } from 'react'
+import styles from './canvas.module.css';
+import { useFrame, useThree } from '@react-three/fiber';
+import { AsciiEffect } from 'three-stdlib';
+import { useEffect, useRef, useMemo } from 'react';
+import { Canvas } from '@react-three/fiber';
 
 function Torusknot(props) {
     const ref = useRef()
@@ -47,4 +49,14 @@ function AsciiRenderer({ renderIndex = 1, characters = ' .:-+*=&@#', ...options 
     }, renderIndex)
 }
 
-export { Torusknot, AsciiRenderer }
+export function Canvas3d() {
+    return (
+        <Canvas className={styles.canvas} style={{ position: 'fixed' }}>
+            <color attach="background" args={['black']} />
+            <spotLight position={[10, 10, 10]} angle={0.15} penumbra={1} />
+            <pointLight position={[-10, -10, -10]} />
+            <Torusknot />
+            <AsciiRenderer invert />
+        </Canvas>
+    )
+}
