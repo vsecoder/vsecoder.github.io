@@ -1,4 +1,4 @@
-# Resume on React + THREE.js
+# Resume on Next.JS + THREE.js
 
 ## Dev
 
