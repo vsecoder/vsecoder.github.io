@@ -1,4 +1,4 @@
-# Resume on Next.JS + THREE.js
+# Resume on Next.JS + THREE.js + Vercel API
 
 ## Dev
 
