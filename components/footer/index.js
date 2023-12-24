@@ -9,7 +9,7 @@ export function Footer() {
                     [<a href="https://github.com/vsecoder/vsecoder.github.io">PAGE SOURCES</a>]
                     [<a href="https://t.me/vsecoder_bio">BIO</a>]
                     [<a href="https://wakatime.com/@vsecoder">WAKATIME</a>]
-                    [<a href="https://projects.vsecoder.me/">PROJECTS</a>]
+                    [<a href="https://projects.vsecoder.dev/">PROJECTS</a>]
                 </p>
             </div>
             <Hr />
