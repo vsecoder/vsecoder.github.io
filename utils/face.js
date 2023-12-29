@@ -1,6 +1,6 @@
 import fs from 'fs';
 
-const file = fs.readFileSync('./utils/faces.json', 'utf8');
+const file = fs.readFileSync(process.cwd() + '/utils/faces.json', 'utf8');
 
 const face = JSON.parse(file);
 
