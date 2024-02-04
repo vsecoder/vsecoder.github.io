@@ -6,6 +6,7 @@ export function Footer() {
         <>
             <div className={styles.footer}>
                 <p> More links:<br />
+                    [<a href="https://habr.com/ru/users/vsecoder">HABR</a>]
                     [<a href="https://github.com/vsecoder/vsecoder.github.io">PAGE SOURCES</a>]
                     [<a href="https://t.me/vsecoder_bio">BIO</a>]
                     [<a href="https://wakatime.com/@vsecoder">WAKATIME</a>]
