@@ -39,7 +39,6 @@ export default function App() {
     <>
       <div className={styles.container}>
         <Link href="/projects">&lt; Back</Link>
-        <pre>$ cat project.md</pre>
         <Markdown options={{
             overrides: {
                 hr: {
