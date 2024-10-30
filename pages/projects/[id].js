@@ -25,6 +25,44 @@ Frame:
 f(x) = 1 + x / (1 + x)
 \`\`\`
 
+Graph:
+\`\`\`diagon/graph
+random -> pool_urbg
+random -> nonsecure_base
+random -> seed_sequence
+random -> distribution
+
+nonsecure_base -> pool_urbg
+nonsecure_base -> salted_seed_seq
+
+seed_sequence -> pool_urbg
+seed_sequence -> salted_seed_seq
+seed_sequence -> seed_material
+
+distribution -> strings
+
+pool_urbg -> seed_material
+
+salted_seed_seq -> seed_material
+
+seed_material -> strings
+\`\`\`
+
+
+Tree:
+\`\`\`diagon/tree
+Linux
+  Android  Debian
+    Ubuntu
+      Lubuntu
+      Kubuntu
+      Xubuntu
+      Xubuntu
+    Mint
+  Centos
+  Fedora
+\`\`\`
+
 Some text after.`;
 
     fetch('/api/render', {
