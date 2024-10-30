@@ -14,10 +14,12 @@ export function Content() {
     return (
         <main className={styles.content}>
             <b>Web design, JavaScript, Python</b>
-            <p>Hello, I&apos;m a ~{myAge} years old developer! I have been developing since an early age, and I fell in love with coding.</p>
-            <p>My resume contains a bunch of different rubbish that I&apos;m too lazy to list, it&apos;s better to look at Github for yourself)))</p>
-            <p>P.S. this whole page is written for the sake of interest without any special styles on React.js and THREE.js!</p>
-            <p>P.S.S. this page have {metrikaData} visits!</p>
+            <p>Hello! I&apos;m an ~{myAge}-year-old developer, and my journey into coding began when I was young. Over the years, programming has evolved from a curiosity into a true passion for me.</p>
+            <p>I&apos;ve explored a range of technologies and worked on various projects that have challenged and inspired me, helping me grow both technically and creatively.</p>
+
+            <p>If you’re interested in the details of my experience, my GitHub is the best place to see what I&apos;ve been up to—it&apos;s a collection of my favorite projects and experiments.</p>
+            <p>This page itself is a small creative project, built using React.js and THREE.js. I kept the design clean and simple to focus on the functionality and the technology behind it.</p>
+            <p>Oh, and just for fun: this page has been visited {metrikaData} times!</p>
         </main>
     )
 }

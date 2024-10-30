@@ -6,23 +6,23 @@ export default async function handler(req, res) {
     const diagon = await Diagon.init({wasmUrl: 'https://cdn.jsdelivr.net/npm/diagonjs@1.6.1/dist/diagon.js-1.1.wasm'});
 
     input = input.replace(/```diagon\/math\s+([\s\S]*?)```/g, (match, code) => {
-        return diagon.translate.math(code.trim(), { style: "unicode" });
+        return '\`\`\`\n' + diagon.translate.math(code.trim(), { style: "unicode" }) + '\n\`\`\`';
     });
 
     input = input.replace(/```diagon\/table\s+([\s\S]*?)```/g, (match, code) => {
-        return diagon.translate.table(code.trim(), { style: "unicode with double header" });
+        return '\`\`\`\n' + diagon.translate.table(code.trim(), { style: "unicode with double header" }) + '\n\`\`\`';
     });
 
     input = input.replace(/```diagon\/frame\s+([\s\S]*?)```/g, (match, code) => {
-        return diagon.translate.frame(code.trim(), { style: "unicode" });
+        return '\`\`\`\n' + diagon.translate.frame(code.trim(), { style: "unicode" }) + '\n\`\`\`';
     });
 
     input = input.replace(/```diagon\/graph\s+([\s\S]*?)```/g, (match, code) => {
-        return diagon.translate.graphDAG(code.trim());
+        return '\`\`\`\n' + diagon.translate.graphDAG(code.trim()) + '\n\`\`\`';
     });
 
     input = input.replace(/```diagon\/tree\s+([\s\S]*?)```/g, (match, code) => {
-        return diagon.translate.tree(code.trim(), { style: "unicode 2" });
+        return '\`\`\`\n' + diagon.translate.tree(code.trim(), { style: "unicode 2" }) + '\n\`\`\`';
     });
 
     res.status(200).json({ markdown: input });
