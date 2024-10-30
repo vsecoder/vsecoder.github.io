@@ -7,13 +7,16 @@
   left: 50%;
   top: 50%;
   transform: translate(-50%, -50%);
+
+  width: 100vw;
+  max-height: 100vh;
+  overflow-y: auto;
 }
 
 @media screen and (max-width: 450px) {
   .container {
     position: absolute;
-    max-width: 400px;
     top: 50%;
-    width: 90%;
+    padding: 0 16px;
   }
 }

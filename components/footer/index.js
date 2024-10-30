@@ -1,5 +1,6 @@
 import styles from "./footer.module.css";
 import { Hr } from "../hr";
+import Link from "next/link";
 
 export function Footer() {
     return (
@@ -10,7 +11,7 @@ export function Footer() {
                     [<a href="https://github.com/vsecoder/vsecoder.github.io">PAGE SOURCES</a>]
                     [<a href="https://t.me/vsecoder_bio">BIO</a>]
                     [<a href="https://wakatime.com/@vsecoder">WAKATIME</a>]
-                    [<a href="https://projects.vsecoder.dev/">PROJECTS</a>]
+                    [<Link href="/projects">PROJECTS</Link>]
                 </p>
             </div>
             <Hr />

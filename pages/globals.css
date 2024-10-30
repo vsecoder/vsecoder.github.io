@@ -20,6 +20,15 @@ a {
   color: white;
 }
 
+pre {
+  overflow-x: auto;
+  max-width: 100%;
+}
+
+code {
+  font-family: monospace;
+}
+
 @media (prefers-color-scheme: dark) {
   html {
     color-scheme: dark;
