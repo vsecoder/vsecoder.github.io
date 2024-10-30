@@ -22,11 +22,14 @@ export default function App() {
     <>
       <div className={styles.container}>
         <Link href="/">&lt; Back</Link>
-        <p>Projects:</p>
-        {projects.map((element, i) => {
-          element = element.replace('.md', '');
-          return (<p key={i}><Link href={`/projects/${element}`}>{element}</Link></p>)
-        })}
+        <h2>Projects:</h2>
+        <ul>
+          {projects.map((element, i) => {
+            element = element.replace('.md', '');
+            return (<li key={i}><Link href={`/projects/${element}`}>{element}</Link></li>)
+          })}
+        </ul>
+        <p>Later more.</p>
       </div>
 
       <Canvas3d />

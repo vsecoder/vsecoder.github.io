@@ -19,7 +19,7 @@ export function Content() {
 
             <p>If you’re interested in the details of my experience, my GitHub is the best place to see what I&apos;ve been up to—it&apos;s a collection of my favorite projects and experiments.</p>
             <p>This page itself is a small creative project, built using React.js and THREE.js. I kept the design clean and simple to focus on the functionality and the technology behind it.</p>
-            <p>Oh, and just for fun: this page has been visited {metrikaData} times!</p>
+            <p>Oh, and just for fun: this page has been visited {metrikaData} times on last month!</p>
         </main>
     )
 }
