@@ -19,6 +19,7 @@ In addition, we offer several extra features, including:
 1. Bot management via a web interface
 2. Inline menu controls for easy access
 3. Community support chat for quick assistance
+
 And all this comes at a highly affordable price of just $1 per month, which is more budget-friendly than most VPS options.
 
 ## How It Works

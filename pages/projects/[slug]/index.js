@@ -1,44 +1,39 @@
 import styles from '../../index.module.css';
 import { Canvas3d } from '@/components/3d';
 import { useEffect, useState } from 'react';
-import Markdown from 'markdown-to-jsx'
+import Markdown from 'markdown-to-jsx';
 import { Hr } from '@/components/hr';
 import Link from 'next/link';
 
-
 export default function App() {
-  const [markdown, setMarkdown] = useState('-')
-  const [prerenderedMarkdown, setPreRenderedMarkdown] = useState('-');
+  const [content, setContent] = useState('-');
 
   useEffect(() => {
-    const filename = window.location.pathname.split('/')[2];
+    const loadAndRenderMarkdown = async () => {
+      const filename = window.location.pathname.split('/')[2];
 
-    fetch(`/api/project?filename=${filename}`)
-      .then((response) => response.json())
-      .then((data) => {
-        setMarkdown(data.markdown);
-      })
-      .catch((error) => {
-        setMarkdown('Error loading markdown.');
-      });
+      try {
+        const fileResponse = await fetch(`/api/project?filename=${filename}`);
+        const fileData = await fileResponse.json();
+
+        const renderResponse = await fetch('/api/render', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify({ markdown: fileData.markdown }),
+        });
+        const renderData = await renderResponse.json();
+        
+        setContent(renderData.markdown);
+      } catch (error) {
+        console.error('Error:', error);
+        setContent('Error loading or rendering markdown.');
+      }
+    };
+
+    loadAndRenderMarkdown();
   }, []);
-
-  useEffect(() => {
-    fetch('/api/render', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify({ markdown: markdown }),
-    })
-      .then((response) => response.json())
-      .then((data) => {
-        setPreRenderedMarkdown(data.markdown);
-      })
-      .catch((error) => {
-        setPreRenderedMarkdown('Error rendering markdown.');
-      });
-  }, [markdown]);
 
   return (
     <>
@@ -52,7 +47,7 @@ export default function App() {
                 }
             }
         }}>
-            {prerenderedMarkdown}
+            {content}
         </Markdown>
       </div>
 
