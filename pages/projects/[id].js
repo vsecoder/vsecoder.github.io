@@ -8,17 +8,19 @@ export default function App() {
   useEffect(() => {
     const markdownContent = `Some text before.
 
+Math:
 \`\`\`diagon/math
 f(x) = 1 + x / (1 + x)
 \`\`\`
 
-
+Table:
 \`\`\`diagon/table
 Column 1,Column 2,Column 3
 C++,Web,Assembly
 Javascript,CSS,HTML
 \`\`\`
 
+Frame:
 \`\`\`diagon/frame
 f(x) = 1 + x / (1 + x)
 \`\`\`
