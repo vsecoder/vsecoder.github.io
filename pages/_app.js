@@ -1,6 +1,8 @@
 import './globals.css';
 import Head from "next/head";
 import { Analytics } from '@vercel/analytics/react';
+import { SpeedInsights } from "@vercel/speed-insights/next"
+
 
 export default function App({ Component, pageProps }) {
     return (
@@ -25,6 +27,7 @@ export default function App({ Component, pageProps }) {
                 <meta property="og:url" content="https://vsecoder.me" />
             </Head>
 
+            <SpeedInsights />
             <Analytics />
             <Component {...pageProps} />
         </>
