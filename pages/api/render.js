@@ -24,8 +24,7 @@ export default async function handler(req, res) {
         },
         graph: {
             regex: /```diagon\/graph\s+([\s\S]*?)```/g,
-            method: diagon.translate.graphDAG,
-            options: null
+            method: diagon.translate.graphDAG
         },
         tree: {
             regex: /```diagon\/tree\s+([\s\S]*?)```/g,
@@ -34,8 +33,8 @@ export default async function handler(req, res) {
         }
     };
 
-    for (const [key, { regex, method, options }] of Object.entries(diagonTransforms)) {
-        input = input.replace(regex, (match, code) => {
+    for (const [_, { regex, method, options }] of Object.entries(diagonTransforms)) {
+        input = input.replace(regex, (_, code) => {
             const result = options ? method(code.trim(), options) : method(code.trim());
             return `\`\`\`\n${result}\n\`\`\``;
         });

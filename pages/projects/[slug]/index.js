@@ -6,7 +6,7 @@ import { Hr } from '@/components/hr';
 import Link from 'next/link';
 
 export default function App() {
-  const [content, setContent] = useState('-');
+  const [content, setContent] = useState('\n\nLoading...');
 
   useEffect(() => {
     const loadAndRenderMarkdown = async () => {
@@ -28,7 +28,7 @@ export default function App() {
         setContent(renderData.markdown);
       } catch (error) {
         console.error('Error:', error);
-        setContent('Error loading or rendering markdown.');
+        setContent('\n\nError loading or rendering markdown.');
       }
     };
 

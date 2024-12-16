@@ -16,33 +16,39 @@ HikkaHost was developed to simplify the user experience by eliminating the need 
 
 In addition, we offer several extra features, including:
 
-1. Bot management via a web interface
-2. Inline menu controls for easy access
-3. Community support chat for quick assistance
+1. Bot management via a web interface  
+2. Inline menu controls for easy access  
+3. Community support chat for quick assistance  
 
-And all this comes at a highly affordable price of just $1 per month, which is more budget-friendly than most VPS options.
+All this comes at a highly affordable price of just $1 per month, which is more budget-friendly than most VPS options.
 
 ## How It Works
 
-One of HikkaHost’s key components is Docker, which we use for container management. This allows us to quickly and seamlessly update Docker images and add new features or fixes.
+One of HikkaHost’s key components is Docker Compose, which we use for container management. This allows us to quickly and seamlessly update Docker images, manage configurations, and add new features or fixes.
+
+### Key Metrics:
+- The **API** has **75+% test coverage**, ensuring reliability and stability.  
+- Servers handle an average of **100k+ requests daily** and have processed over **12 million requests** to date.  
+- Each user instance has restrictions on **traffic, CPU, and RAM usage** to ensure fair resource allocation and optimal performance.
 
 ## Project Architecture
 The architecture of HikkaHost includes:
 
 - A central server housing the PostgreSQL database and an API for managing other servers.
-- Dedicated servers that run Docker containers for the bots, which communicate with the central server through an access-keyed API.
+- Dedicated servers that run Docker Compose containers for the bots, which communicate with the central server through an access-keyed API.
 - Various clients that can control bots via API (e.g., web interface, bots, modules).
 
-```diagon/graph
-Central_Server -> PostgreSQL_Database
-Central_Server -> API
-
-API -> Dedicated_Servers
-API -> Clients
-
-Dedicated_Servers -> Docker_Containers
-
-Clients -> Web_Interface
-Clients -> Bot
-Clients -> Modules
+```
+┌────────────────────────┐                        
+│    Central_Server      │                        
+└┬──────────────────────┬┘                        
+┌▽───────────────────┐┌▽──┐                     
+│PostgreSQL_Database ││API │                     
+└────────────────────┘└┬──┬┘                     
+┌─────────────────────▽┐┌▽──────────────┐      
+│   Dedicated_Servers  ││    Clients     │      
+└┬─────────────────────┘└┬─────────┬────┬┘      
+┌▽────────────────┐┌─────▽──────┐┌▽──┐┌▽─────┐
+│Docker_Containers││Web_Interface││Bot││Modules│
+└─────────────────┘└─────────────┘└───┘└───────┘
 ```
